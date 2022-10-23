@@ -1,15 +1,20 @@
 {
   "name": "@notifier-lib/cocktails",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Shared notifier library for the cocktail category",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "prepare" : "npm run build"
+    "prepare": "npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "notifier-lib",
+    "cocktails",
+    "category"
+  ],
+  "author": "Rb",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.8.4"
