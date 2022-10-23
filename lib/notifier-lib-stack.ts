@@ -1,16 +1,18 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { Stack, StackProps } from "aws-cdk-lib";
+import { Construct } from "constructs";
+import * as codeArti from "aws-cdk-lib/aws-codeartifact";
 
 export class NotifierLibStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    const domain = new codeArti.CfnDomain(this, "notifier-lib-domain", {
+      domainName: "notifier-lib",
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'NotifierLibQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    new codeArti.CfnRepository(this, "notifier-lib-repo", {
+      domainName: domain.domainName,
+      repositoryName: "notifier-lib-repo",
+    });
   }
 }
